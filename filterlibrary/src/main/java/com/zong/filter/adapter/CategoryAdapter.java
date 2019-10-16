@@ -1,7 +1,6 @@
-package com.zong.filter;
+package com.zong.filter.adapter;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -9,6 +8,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagFlowLayout;
+import com.zong.filter.bean.CategoryBean;
+import com.zong.filter.R;
 
 import java.util.HashSet;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.zong.filter;
+package com.zong.filter.bean;
 
 import java.util.List;
 

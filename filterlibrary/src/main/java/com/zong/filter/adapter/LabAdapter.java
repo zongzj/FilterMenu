@@ -1,4 +1,4 @@
-package com.zong.filter;
+package com.zong.filter.adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
+import com.zong.filter.bean.CategoryBean;
+import com.zong.filter.R;
 
 import java.util.List;
 

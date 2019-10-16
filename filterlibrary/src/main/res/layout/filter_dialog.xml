@@ -2,22 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:zhy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:paddingTop="20dp"
     android:layout_height="wrap_content">
 
-    <!--    <View-->
-    <!--        android:id="@+id/view_line"-->
-    <!--        android:layout_width="50dp"-->
-    <!--        android:visibility="gone"-->
-    <!--        android:layout_height="match_parent" />-->
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="50dp"
+        android:layout_height="match_parent" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_centerVertical="true"
+        android:paddingTop="15dp"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="50dp"
         android:layout_marginBottom="50dp"
         android:background="#fff" />
