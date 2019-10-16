@@ -6,21 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zhy.view.flowlayout.TagFlowLayout;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DialogFilterUtils {
     CategoryAdapter adapter;
     View mInflate;
-    List<CategoryBean.ListBean> listBeanList;
+    List<CategoryBean> listBeanList;
     public AlertDialog filterDialog(Activity context,
-                                    List<CategoryBean.ListBean> listBeanList,
+                                    List<CategoryBean> listBeanList,
                                     final View.OnClickListener confimlListener) {
         mInflate = LayoutInflater.from(context).inflate(R.layout.filter_dialog, null, false);
         final AlertDialog alertDialog = new AlertDialog.Builder(context,
@@ -64,18 +62,12 @@ public class DialogFilterUtils {
                 });
         return alertDialog;
     }
-
     public void clearSelected() {
         mInflate = null;
-//        flowLayout.onChanged();//金额清空
-//        for (int i = 0; i < listBeanList.size(); i++) {
-//            listBeanList.get(i).setClear(true);
-//        }
         listBeanList = new ArrayList<>();
         adapter.notifyDataSetChanged();
     }
-
-    public void initRecycle(Activity context, List<CategoryBean.ListBean> list) {
+    public void initRecycle(Activity context, List<CategoryBean> list) {
         listBeanList = list;
         RecyclerView rv = mInflate.findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(context));
@@ -83,5 +75,4 @@ public class DialogFilterUtils {
         rv.setAdapter(adapter);
     }
 
-    private final String TAG = "DialogFilterUtils";
 }
