@@ -7,9 +7,11 @@ import android.widget.TextView;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 
+import java.util.List;
+
 public class LabAdapter extends TagAdapter {
     Activity activity;
-    public LabAdapter(Object[] datas, Activity activity) {
+    public LabAdapter(List<CategoryBean.ChildBean> datas, Activity activity) {
         super(datas);
         this.activity=activity;
     }
@@ -17,7 +19,8 @@ public class LabAdapter extends TagAdapter {
     @Override
     public View getView(FlowLayout parent, int position, Object o) {
         TextView tv = (TextView) LayoutInflater.from(activity).inflate(R.layout.filter_flow_tv, parent, false);
-        tv.setText((String)o);
+        CategoryBean.ChildBean bean= (CategoryBean.ChildBean)o;
+        tv.setText(bean.getTypename()+"");
         return tv;
     }
 }

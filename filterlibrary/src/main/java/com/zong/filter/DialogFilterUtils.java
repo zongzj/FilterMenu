@@ -1,6 +1,8 @@
 package com.zong.filter;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,22 +19,22 @@ public class DialogFilterUtils {
     CategoryAdapter adapter;
     View mInflate;
     List<CategoryBean> listBeanList;
+
     public AlertDialog filterDialog(Activity context,
-                                    List<CategoryBean> listBeanList,
-                                    final View.OnClickListener confimlListener) {
+                             List<CategoryBean> listBeanList,
+                             final View.OnClickListener confimlListener) {
         mInflate = LayoutInflater.from(context).inflate(R.layout.filter_dialog, null, false);
         final AlertDialog alertDialog = new AlertDialog.Builder(context,
                 R.style.DialogStyleRight).create();
         alertDialog.show();
         final Window window = alertDialog.getWindow();
-
-
         window.setContentView(mInflate);
+
         initRecycle(context, listBeanList);
         window.setLayout(
                 window.getContext().getResources().getDisplayMetrics().widthPixels,
                 WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setGravity(Gravity.CENTER);
+        window.setGravity(Gravity.RIGHT);
         window.setWindowAnimations(R.style.dialog_left_right_animation);
         window.clearFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         alertDialog.setCanceledOnTouchOutside(true);
@@ -62,16 +64,24 @@ public class DialogFilterUtils {
                 });
         return alertDialog;
     }
+
+    private static final String TAG = "DialogFilterUtils";
+
     public void clearSelected() {
         mInflate = null;
-        listBeanList = new ArrayList<>();
+        for (CategoryBean categoryBean : listBeanList) {
+            for (CategoryBean.ChildBean bean : categoryBean.getChild()) {
+                bean.setIsCheck(false);
+            }
+        }
         adapter.notifyDataSetChanged();
     }
+
     public void initRecycle(Activity context, List<CategoryBean> list) {
         listBeanList = list;
         RecyclerView rv = mInflate.findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(context));
-        adapter = new CategoryAdapter(listBeanList);
+        adapter = new CategoryAdapter(listBeanList, context);
         rv.setAdapter(adapter);
     }
 
