@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagFlowLayout;
+import com.zong.filter.OnCallbackListener;
 import com.zong.filter.bean.CategoryBean;
 import com.zong.filter.R;
 
@@ -19,13 +20,18 @@ public class CategoryAdapter extends BaseQuickAdapter<CategoryBean, BaseViewHold
     public static final int SHOW_LAB_NUM = 7;//每个item下展示几个标签
 
     Activity activity;
-    public CategoryAdapter(List<CategoryBean> data, Activity activity) {
+    boolean isSelectOne;
+    OnCallbackListener listener;
+
+    public CategoryAdapter(Activity activity, List<CategoryBean> data, boolean isSelectOne, OnCallbackListener listener) {
         super(R.layout.item_lab_title, data);
         this.activity = activity;
+        this.listener = listener;
+        this.isSelectOne = isSelectOne;
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, CategoryBean item) {
+    protected void convert(final BaseViewHolder helper, CategoryBean item) {
         helper.setText(R.id.tvTitle, item.getTypename());
         final TagFlowLayout flowLayout = helper.getView(R.id.flowlayout);//子类别
         final List<CategoryBean.ChildBean> child = item.getChild();
@@ -33,10 +39,20 @@ public class CategoryAdapter extends BaseQuickAdapter<CategoryBean, BaseViewHold
         final int labLen = child.size();
         LabAdapter labAdapter = new LabAdapter(child, activity);
         flowLayout.setAdapter(labAdapter);
+        if (isSelectOne) {
+            flowLayout.setMaxSelectCount(1);
+        }else {
+            flowLayout.setMaxSelectCount(-1);
+        }
         flowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 CategoryBean.ChildBean bean = child.get(position);
+                if (bean.isIsCheck()) {
+                    listener.onUnSelected(helper.getAdapterPosition(), position);
+                } else {
+                    listener.onSelected(helper.getAdapterPosition(), position);
+                }
                 bean.setIsCheck(!bean.isIsCheck());//选中或者取消选中
                 return false;
             }
@@ -62,6 +78,7 @@ public class CategoryAdapter extends BaseQuickAdapter<CategoryBean, BaseViewHold
         } else {
             tvAll.setVisibility(View.GONE);
         }
+
 
         tvAll.setOnClickListener(new View.OnClickListener() {
             @Override

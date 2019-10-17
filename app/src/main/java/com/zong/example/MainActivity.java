@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.zong.filter.FilterMenu;
+import com.zong.filter.OnCallbackListener;
 import com.zong.filter.bean.CategoryBean;
 import com.zong.filter.DialogFilterUtils;
 import com.zong.filter.GetJsonDataUtil;
@@ -32,22 +34,28 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogFilterUtils.filterDialog(MainActivity.this, categoryList, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        StringBuilder s = new StringBuilder();
-                        for (CategoryBean bean : categoryList) {
-                            for (CategoryBean.ChildBean childBean : bean.getChild()) {
-                                if (childBean.isIsCheck()) {
-                                    Log.i(TAG, "选中id: " + childBean.getId());
-                                    Log.i(TAG, "选中名称: " + childBean.getTypename());
-                                    s.append("选中id: " + childBean.getId() + "选中名称: " + childBean.getTypename());
-                                }
+                new FilterMenu.Builder()
+                        .setActivity(MainActivity.this)
+                        .setListBeanList(categoryList)
+                        .setRecover(true)
+                        .setSelectOne(true)
+                        .setCalbackListener(new OnCallbackListener() {
+                            @Override
+                            public void onComplete() {
                             }
-                        }
-                        tv.setText(s);
-                    }
-                });
+                            @Override
+                            public void onSelected(int posParent, int posChild) {
+                            }
+                            @Override
+                            public void onUnSelected(int posParent, int posChild) {
+
+                            }
+                            @Override
+                            public void onCancel() {
+                            }
+                        })
+                        .show();
+
 
             }
         });

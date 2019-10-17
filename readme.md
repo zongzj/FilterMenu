@@ -11,8 +11,8 @@
 # 如何修改样式
  - 标签的样式可以通过修改filter_flow_tv.xml
 # 原理
- - RecycleView的item使用Flowlayout
- - RecycleView的数据源里添加isCheck保持标签是否被选中的属性
+ - RecycleView的item使用Flowlayout展示子标签
+ - RecycleView的实体类里添加isCheck保持标签是否被选中的属性
  - 可以通过RecycleView添加headView或者footView扩展其他样式
 #说明:
   - Flowlayout使用的是https://github.com/hongyangAndroid/FlowLayout
