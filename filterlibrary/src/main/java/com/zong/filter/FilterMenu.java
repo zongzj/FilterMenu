@@ -15,6 +15,7 @@ public class FilterMenu {
     private boolean isSelectOne;
     private OnCallbackListener calbackListener;
 
+
     public FilterMenu(Activity activity, List<CategoryBean> beanList, boolean isRecover, boolean isSelectOne, OnCallbackListener calbackListener) {
         this.activity = activity;
         this.beanList = beanList;

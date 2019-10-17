@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         .setActivity(MainActivity.this)
                         .setListBeanList(categoryList)
                         .setRecover(true)
-                        .setSelectOne(true)
+                        .setSelectOne(false)
                         .setCalbackListener(new OnCallbackListener() {
                             @Override
                             public void onComplete() {

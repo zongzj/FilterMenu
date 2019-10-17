@@ -9,11 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.zong.filter.adapter.CategoryAdapter;
 import com.zong.filter.bean.CategoryBean;
+
 import java.util.List;
+
 public class DialogFilterUtils {
     CategoryAdapter adapter;
     View mInflate;
@@ -27,18 +31,21 @@ public class DialogFilterUtils {
      * @param callbackListener
      * @return
      */
-    private AlertDialog filterDialog(Activity activity,
-                                     List<CategoryBean> listBeanList,
-                                     final boolean isRecover,
-                                     boolean isSelectOne,
-                                     final OnCallbackListener callbackListener) {
-        mInflate = LayoutInflater.from(activity).inflate(R.layout.filter_dialog, null, false);
+    public AlertDialog filterDialog(Activity activity,
+                                    List<CategoryBean> listBeanList,
+                                    final boolean isRecover,
+                                    boolean isSelectOne,
+                                    final OnCallbackListener callbackListener) {
+        mInflate = LayoutInflater.from(activity).inflate(R.layout.filter_dialog_from_bottom, null, false);
         final AlertDialog alertDialog = new AlertDialog.Builder(activity,
                 R.style.DialogStyleRight).create();
         alertDialog.show();
         alertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    clearSelected();
+                }
                 return false;
             }
         });
