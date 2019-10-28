@@ -1,9 +1,9 @@
 package com.zong.filter;
 
 import android.app.Activity;
-import android.view.View;
 
 import com.zong.filter.bean.CategoryBean;
+import com.zong.filter.callback.OnCallbackListener;
 
 import java.util.List;
 
@@ -13,17 +13,19 @@ public class FilterMenu {
     private List<CategoryBean> beanList;
     private boolean isRecover;
     private boolean isSelectOne;
+    private boolean isFromBottom;
     private OnCallbackListener calbackListener;
 
 
-    public FilterMenu(Activity activity, List<CategoryBean> beanList, boolean isRecover, boolean isSelectOne, OnCallbackListener calbackListener) {
+    public FilterMenu(Activity activity, List<CategoryBean> beanList, boolean isRecover, boolean isSelectOne, boolean isFromBottom, OnCallbackListener calbackListener) {
         this.activity = activity;
         this.beanList = beanList;
         this.isRecover = isRecover;
         this.isSelectOne = isSelectOne;
+        this.isFromBottom = isFromBottom;
         this.calbackListener = calbackListener;
         DialogFilterUtils filterUtils = new DialogFilterUtils();
-        filterUtils.filterDialog(activity, beanList, isRecover, isSelectOne, calbackListener);
+        filterUtils.filterDialog(activity, beanList, isRecover, isSelectOne,isFromBottom,calbackListener);
     }
 
     public static final class Builder {
@@ -31,6 +33,7 @@ public class FilterMenu {
         private List<CategoryBean> beanList;
         private boolean isRecover = true;
         private boolean isSelectOne = false;
+        private boolean isFromBottom = false;
         private OnCallbackListener calbackListener;
 
         public Builder() {
@@ -58,6 +61,12 @@ public class FilterMenu {
         }
 
         public Builder setRecover(boolean recover) {
+            isRecover = recover;
+            return this;
+        }
+
+        public Builder setFromBottom(boolean isFromBottom) {
+            this.isFromBottom = isFromBottom;
             return this;
         }
 
@@ -67,7 +76,7 @@ public class FilterMenu {
         }
 
         public FilterMenu show() {
-            return new FilterMenu(activity, beanList, isRecover, isSelectOne, calbackListener);
+            return new FilterMenu(activity, beanList, isRecover, isSelectOne, isFromBottom,calbackListener);
         }
     }
 }

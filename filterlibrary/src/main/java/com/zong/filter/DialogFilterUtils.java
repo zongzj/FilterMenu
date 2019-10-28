@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.zong.filter.adapter.CategoryAdapter;
 import com.zong.filter.bean.CategoryBean;
+import com.zong.filter.callback.OnCallbackListener;
 
 import java.util.List;
 
@@ -23,11 +24,13 @@ public class DialogFilterUtils {
     View mInflate;
     List<CategoryBean> listBeanList;
 
+
     /**
      * @param activity
      * @param listBeanList
      * @param isRecover        再次展开时是否恢复数据
      * @param isSelectOne      单选
+     * @param isFromBottom      true 底部弹出
      * @param callbackListener
      * @return
      */
@@ -35,8 +38,10 @@ public class DialogFilterUtils {
                                     List<CategoryBean> listBeanList,
                                     final boolean isRecover,
                                     boolean isSelectOne,
+                                    boolean isFromBottom,
                                     final OnCallbackListener callbackListener) {
-        mInflate = LayoutInflater.from(activity).inflate(R.layout.filter_dialog_from_bottom, null, false);
+
+            mInflate = LayoutInflater.from(activity).inflate(isFromBottom ? R.layout.filter_dialog_from_bottom:R.layout.filter_dialog_from_right, null, false);
         final AlertDialog alertDialog = new AlertDialog.Builder(activity,
                 R.style.DialogStyleRight).create();
         alertDialog.show();
@@ -57,7 +62,7 @@ public class DialogFilterUtils {
                 window.getContext().getResources().getDisplayMetrics().widthPixels,
                 WindowManager.LayoutParams.WRAP_CONTENT);
         window.setGravity(Gravity.CENTER);
-        window.setWindowAnimations(R.style.dialog_left_right_animation);
+        window.setWindowAnimations(isFromBottom?R.style.dialog_left_right_animation:R.style.dialog_right_left_animation);
         window.clearFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         alertDialog.setCanceledOnTouchOutside(true);
         window.findViewById(R.id.view_line).setOnClickListener(new View.OnClickListener() {

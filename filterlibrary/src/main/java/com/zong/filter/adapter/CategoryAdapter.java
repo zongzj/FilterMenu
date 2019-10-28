@@ -8,7 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagFlowLayout;
-import com.zong.filter.OnCallbackListener;
+import com.zong.filter.callback.OnCallbackListener;
 import com.zong.filter.bean.CategoryBean;
 import com.zong.filter.R;
 

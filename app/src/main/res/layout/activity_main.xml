@@ -9,16 +9,23 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="筛选" />
+        android:text="右侧菜单" />
+
+    <Button
+        android:id="@+id/btn_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="底部菜单" />
 
     <TextView
         android:id="@+id/tv"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="" />
 
 </LinearLayout>

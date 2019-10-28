@@ -4,9 +4,15 @@
         <item name="android:windowEnterAnimation">@anim/in_from_right</item>
         <item name="android:windowExitAnimation">@anim/out_to_right</item>
     </style>
+
     <style name="dialog_up_down_animation">
         <item name="android:windowEnterAnimation">@anim/in_from_bottom</item>
         <item name="android:windowExitAnimation">@anim/out_to_bottom</item>
+    </style>
+
+    <style name="dialog_right_left_animation">
+        <item name="android:windowEnterAnimation">@anim/in_from_right</item>
+        <item name="android:windowExitAnimation">@anim/out_to_right</item>
     </style>
 
     <style name="DialogStyleRight" parent="android:Theme.Dialog">
