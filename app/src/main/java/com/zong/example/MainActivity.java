@@ -37,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 new FilterMenu.Builder()
                         .setActivity(MainActivity.this)
                         .setListBeanList(categoryList)
-                        .setRecover(true)
-                        .setSelectOne(false)
+                        .setRecover(true)//是否恢复数据
                         .setCalbackListener(new OnCallbackListener() {
                             @Override
                             public void onComplete() {
@@ -86,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         .setActivity(MainActivity.this)
                         .setListBeanList(categoryList2)
                         .setRecover(true)
-                        .setSelectOne(false)
-                        .setFromBottom(true)
+                        .setFromBottom(true)//底部弹出
                         .setCalbackListener(new OnCallbackListener() {
                             @Override
                             public void onComplete() {
