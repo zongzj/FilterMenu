@@ -18,7 +18,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }
                                 }
+                                tv.setText(stringBuilder);
                             }
 
                             @Override
@@ -93,13 +93,15 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete() {
                                 //点击完成按钮
                                 StringBuilder stringBuilder = new StringBuilder();
-                                for (CategoryBean categoryBean : categoryList) {
+                                for (CategoryBean categoryBean : categoryList2) {
                                     for (CategoryBean.ChildBean childBean : categoryBean.getChild()) {
                                         if (childBean.isIsCheck()) {
                                             stringBuilder.append(childBean.getTypename());
                                         }
                                     }
                                 }
+                                tv.setText(stringBuilder);
+
                             }
 
                             @Override
@@ -122,6 +124,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }
