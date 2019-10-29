@@ -7,9 +7,7 @@
   - 2.弹出菜单是否保持上次筛选记录
   - 3.可扩展为底部弹窗
 # 截图
-![image](https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif)
-<img src="https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif">
-
+  - <img  border="0"  src="https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif">
 ### 可扫码下载安装
 ![image](https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/f0jH.png)
 # 如何修改样式
