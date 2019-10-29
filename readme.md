@@ -7,9 +7,9 @@
   - 2.弹出菜单是否保持上次筛选记录
   - 3.可扩展为底部弹窗
 # 截图
-(https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif)
-###可扫码下载安装
-(https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/f0jH.png)
+![image](https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif)
+### 可扫码下载安装
+![image](https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/f0jH.png)
 # 如何修改样式
  - 标签的样式可以通过修改filter_flow_tv.xml
 # 原理
