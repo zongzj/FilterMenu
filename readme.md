@@ -9,7 +9,7 @@
 # 截图
   - <img  border="0"  src="https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif">
 ### 可扫码下载安装
-![image](https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/f0jH.png)
+  - <img  border="0"  src="https://github.com/zongzj/FilterMenu/blob/master/f0jH.png">
 # 如何修改样式
  - 标签的样式可以通过修改filter_flow_tv.xml
 # 原理
@@ -18,4 +18,4 @@
  - 可以通过RecycleView添加headView或者footView扩展其他样式
 #说明:
   - Flowlayout使用的是https://github.com/hongyangAndroid/FlowLayout
-  - Recycleview的工具类使用的是https://github.com/CymChad/BaseRecyclerViewAdapterHelper()
+  - Recycleview的工具类使用的是https://github.com/CymChad/BaseRecyclerViewAdapterHelper
