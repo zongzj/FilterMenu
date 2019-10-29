@@ -8,7 +8,7 @@
   - 3.可扩展为底部弹窗
 # 截图
   - <img  border="0"  src="https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif" title="demo">
-### 可扫码下载安装
+### 可扫码下载安装体验
   - <img  border="0"  src="https://github.com/zongzj/FilterMenu/blob/master/f0jH.png" title="demo">
 # 如何修改样式
  - 标签的样式可以通过修改filter_flow_tv.xml
