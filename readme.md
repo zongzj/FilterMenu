@@ -8,7 +8,8 @@
   - 3.可扩展为底部弹窗
   
 # 使用
-```    new FilterMenu.Builder()
+``` 
+   new FilterMenu.Builder()
                            .setActivity(MainActivity.this)
                            .setListBeanList(categoryList)
                            .setRecover(true)//是否恢复数据
