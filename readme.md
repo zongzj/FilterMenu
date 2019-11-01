@@ -6,6 +6,46 @@
   - 1.属性设置单选多选(可以直接设置Flowlayout的属性)
   - 2.弹出菜单是否保持上次筛选记录
   - 3.可扩展为底部弹窗
+  
+# 使用
+```    new FilterMenu.Builder()
+                           .setActivity(MainActivity.this)
+                           .setListBeanList(categoryList)
+                           .setRecover(true)//是否恢复数据
+                           .setCalbackListener(new OnCallbackListener() {
+                               @Override
+                               public void onComplete() {
+                                   //点击完成按钮
+                                   StringBuilder stringBuilder = new StringBuilder();
+                                   for (CategoryBean categoryBean : categoryList) {
+                                       for (CategoryBean.ChildBean childBean : categoryBean.getChild()) {
+                                           if (childBean.isIsCheck()) {
+                                               stringBuilder.append(childBean.getTypename());
+                                           }
+                                       }
+                                   }
+                                   tv.setText(stringBuilder);
+                               }
+   
+                               @Override
+                               public void onSelected(int posParent, int posChild) {
+                                   CategoryBean categoryBean = categoryList.get(posParent); //选中的父类别
+                                   CategoryBean.ChildBean childBean = categoryBean.getChild().get(posChild); //选中的子类别
+                               }
+   
+                               @Override
+                               public void onUnSelected(int posParent, int posChild) {
+   
+                               }
+   
+                               @Override
+                               public void onCancel() {
+                               }
+                           })
+                           .show();
+
+
+```
 # 截图
   - <img  border="0"  src="https://github.com/zongzj/FilterMenu/blob/a8984334af3b0e45584efa220fcdb087242da87b/demo.gif">
 ### 可扫码下载安装
